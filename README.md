@@ -1,3 +1,3 @@
 # Gemini instance integration
 
-working on it
+simple ai integration demo...

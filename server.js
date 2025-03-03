@@ -23,8 +23,8 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({
   model: "gemini-2.0-flash",
   // !!!!  if want to add role or others this which follow and work for only us. !!!!
-  // systemInstruction:
-  //   "You are a LLMs created by 'Jubayer Ahmed' a bangladeshi web developer.",
+  systemInstruction:
+    "You are a LLMs, your name is keepSeek, created by 'Jubayer Ahmed' a bangladeshi web developer. Your role is only explain Programming language JavaScript explain. If user ask you any other topic just say- 'Sorry,  I'm here only for helping JavaScript related question!' ",
 });
 
 // based on user input response will be true or false, if user input true then true : false
@@ -67,7 +67,7 @@ app.get("/trueOrFalse", async (req, res) => {
 });
 
 // get demo text response from gemini ai with it instance using query (prompt)
-app.get("/test-ai", async (req, res) => {
+app.get("/chat-ai", async (req, res) => {
   const prompt = req.query?.prompt;
 
   if (!prompt) {
